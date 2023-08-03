@@ -51,6 +51,9 @@ if search_term:
                 selected_food = food_item
                 break
 if selected_food:
+    # Add a "Back" button to return to search results
+    if st.button("返回"):
+        selected_food = None
     # Display details for the selected food item
     food_details = df[df['Food Item'] == selected_food].iloc[0]
 
@@ -100,7 +103,7 @@ if selected_food:
     with col3:
     # Display micronutrients
         st.subheader("微量營養素:")
-        micros = ['飽和脂肪 (g)', '反式脂肪 (g)', '添加糖 (g)', '鈉 (mg)', '磷 (mg)', '鉀 (mg)']
+        micros = ['反式脂肪 (g)', '磷 (mg)', '鉀 (mg)']
         traffic_light_rules = {
             '脂肪 (g)': (3, 17.5),
             '飽和脂肪 (g)': (1.5, 5),
@@ -111,14 +114,13 @@ if selected_food:
             value = food_details[nutrient]
             color = traffic_light_color(value, low, medium, float('inf'))
             st.markdown(f"<span style='color:{color};'>{nutrient}: {value}</span>", unsafe_allow_html=True)
-
+        for micro in micros:
+            st.write(f"{micro}: {food_details[micro]}")
         # Explanation of the traffic light system
         st.caption("交通號誌系統解釋:")
         st.caption("綠色（低）: 健康水平低於建議值")
         st.caption("黃色（中）: 健康水平在建議範圍內")
         st.caption("紅色（高）: 健康水平超過建議值")
-
-
 
 #---------------------Setting up data-----------------------------
 # @st.cache_data
