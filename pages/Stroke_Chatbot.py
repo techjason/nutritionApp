@@ -15,7 +15,7 @@ class StreamHandler(BaseCallbackHandler):
 
 
 with st.sidebar:
-    openai_api_key = "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"
+    openai_api_key = st.secrets["OPENAI_API_KEY"]
 
 if "messages" not in st.session_state:
     st.session_state["messages"] = [ChatMessage(role="assistant", content="你有甚麼關於中風的知識想知道?")]
