@@ -22,13 +22,14 @@ st.title("🧠 中風患者飲食顧問")
 st.info("這款AI是在HKUStroke的專業營養師驗證的[特定材料](https://docs.google.com/document/d/10DaTtRame1k0FkivbK23GUsGJhgW4ADoRYw4H55vt8M/edit#heading=h.nlh5g19s3ps3)上進行培訓的，儘管如此，有時AI可能會給出不准確的回應。", icon="❗️")
          
 if "messages" not in st.session_state.keys(): # Initialize the chat messages history
-    st.session_state.messages = [
+    st.session_state.messages = [ 
+        {"role": "system", "content": "你只可以用繁體中文字回答。"},
         {"role": "assistant", "content": "隨便問我關於中風患者營養和食物的問題！"}
     ]
 
 @st.cache_resource(show_spinner=False)
 def load_data():
-    with st.spinner(text="Loading and indexing the Streamlit docs – hang tight! This should take 1-2 minutes."):
+    with st.spinner(text="正在訓練飲食顧問..."):
         reader = SimpleDirectoryReader(input_dir="./data", recursive=True)
         docs = reader.load_data()
         service_context = ServiceContext.from_defaults(llm=OpenAI(model="gpt-3.5-turbo", temperature=0.1, system_prompt="您是中風患者的專家營養師，您的工作是回答有關中風患者營養的問題。請假設所有問題都來自中風後的患者。不要產生幻覺特徵。您必須用繁體中文回答。"))
