@@ -77,8 +77,8 @@ if selected_food:
         # Display the percentage values as text with corresponding colors
         total_macros = sum(macros_values)
         fat_percentage = food_details['脂肪 (g)'] / total_macros * 100
-        sugar_percentage = food_details['添加糖 (per 100g)'] / total_macros * 100
-        sodium_percentage = food_details['鈉 (per 100 mg)'] / total_macros * 100
+        sugar_percentage = food_details['添加糖 (g)'] / total_macros * 100
+        sodium_percentage = food_details['鈉 (mg)'] / total_macros * 100
 
         # Warnings based on nutrition guidelines
         if fat_percentage > 30: # Assuming more than 30% fat is considered high
