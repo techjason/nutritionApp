@@ -3,6 +3,7 @@ import os
 import openai
 
 openai.api_key = st.secrets.openai_key
+# openai.api_key = "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"
 
 # # Streamlit UI
 # st.title('中風患者的健康食譜推薦')
@@ -42,12 +43,9 @@ openai.api_key = st.secrets.openai_key
 #     st.write(response.choices[0].message['content'])
 
 
-import streamlit as st
-import os
-import openai
+
 
 # OpenAI API key setup
-openai.api_key = os.getenv("OPENAI_API_KEY")
 
 st.title('中風患者的健康食譜推薦')
 

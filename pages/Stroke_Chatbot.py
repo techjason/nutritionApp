@@ -18,6 +18,8 @@ image = Image.open('hkustrokelogo.png')
 st.image(image, width=300)
 
 openai.api_key = st.secrets.openai_key
+# openai.api_key = "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"
+
 st.title("🧠 中風患者飲食顧問")
 st.info("這款AI是在HKUStroke的專業營養師驗證的[特定材料](https://docs.google.com/document/d/10DaTtRame1k0FkivbK23GUsGJhgW4ADoRYw4H55vt8M/edit#heading=h.nlh5g19s3ps3)上進行培訓的，儘管如此，有時AI可能會給出不准確的回應。", icon="❗️")
          
