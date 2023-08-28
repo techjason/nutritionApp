@@ -3,7 +3,7 @@ import os
 import openai
 
 openai.api_key = st.secrets.openai_key
-# openai.api_key = "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"
+
 
 # # Streamlit UI
 # st.title('中風患者的健康食譜推薦')
