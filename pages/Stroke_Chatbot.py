@@ -23,7 +23,6 @@ st.info("這款AI是在HKUStroke的專業營養師驗證的[特定材料](https:
          
 if "messages" not in st.session_state.keys(): # Initialize the chat messages history
     st.session_state.messages = [ 
-        {"role": "system", "content": "你只可以用繁體中文字回答。"},
         {"role": "assistant", "content": "隨便問我關於中風患者營養和食物的問題！"}
     ]
 
