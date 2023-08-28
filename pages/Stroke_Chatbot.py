@@ -31,7 +31,7 @@ def load_data():
     with st.spinner(text="Loading and indexing the Streamlit docs – hang tight! This should take 1-2 minutes."):
         reader = SimpleDirectoryReader(input_dir="./data", recursive=True)
         docs = reader.load_data()
-        service_context = ServiceContext.from_defaults(llm=OpenAI(model="gpt-3.5-turbo", temperature=0.1, system_prompt="You are an expert nutritionist for stroke patients and your job is to answer questions regarding nutrition for stroke patients. Assume that all questions are from post-stroke patients. Do not hallucinate features. You must respond in Traditional Chinese."))
+        service_context = ServiceContext.from_defaults(llm=OpenAI(model="gpt-3.5-turbo", temperature=0.1, system_prompt="您是中風患者的專家營養師，您的工作是回答有關中風患者營養的問題。請假設所有問題都來自中風後的患者。不要產生幻覺特徵。您必須用繁體中文回答。"))
         index = VectorStoreIndex.from_documents(docs, service_context=service_context)
         return index
 
@@ -49,7 +49,7 @@ for message in st.session_state.messages: # Display the prior chat messages
 # If last message is not from assistant, generate a new response
 if st.session_state.messages[-1]["role"] != "assistant":
     with st.chat_message("assistant"):
-        with st.spinner("Thinking..."):
+        with st.spinner("思考中..."):
             response = chat_engine.chat(prompt)
             st.write(response.response)
             message = {"role": "assistant", "content": response.response}
