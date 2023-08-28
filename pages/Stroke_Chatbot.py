@@ -32,7 +32,7 @@ def load_data():
     with st.spinner(text="正在訓練飲食顧問..."):
         reader = SimpleDirectoryReader(input_dir="./data", recursive=True)
         docs = reader.load_data()
-        service_context = ServiceContext.from_defaults(llm=OpenAI(model="gpt-3.5-turbo", temperature=0.1, system_prompt="您是中風患者的專家營養師，您的工作是回答有關中風患者營養的問題。請假設所有問題都來自中風後的患者。不要產生幻覺特徵。您必須用繁體中文回答。"))
+        service_context = ServiceContext.from_defaults(llm=OpenAI(model="gpt-4", temperature=0.1, system_prompt="您是中風患者的專家營養師，您的工作是回答有關中風患者營養的問題。請假設所有問題都來自中風後的患者。不要產生幻覺特徵。您必須用繁體中文回答。"))
         index = VectorStoreIndex.from_documents(docs, service_context=service_context)
         return index
 
