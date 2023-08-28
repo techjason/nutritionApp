@@ -4,3 +4,7 @@ Pillow>=8.0.0
 matplotlib>=3.4.0
 langchain
 openai
+streamlit
+llama-index==0.8.7
+nltk
+

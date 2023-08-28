@@ -3,7 +3,7 @@ import pandas as pd
 from PIL import Image
 import matplotlib.pyplot as plt
 
-st.set_page_config(page_title="NutritionGPT | HKU Stroke", page_icon="🥗", layout="wide")
+st.set_page_config(page_title="營養計算器 | 港大中風團隊", page_icon="🧠", layout="wide")
 
 # This makes page look better, but it is unsafe
 st.markdown('''<style>
